@@ -1,0 +1,13 @@
+<response>
+	<date>{{date}}</date>
+	<unread_smss>
+		{% for _,val in pairs(unread_smss) do %}
+		<item>
+			<sms_id>{{ val.sms_id }}</sms_id>
+			<sending_date>{{ val.sending_date }}</sending_date>
+			<sender>{{ val.sender }}</sender>
+			<sms_text>{{ val.sms_text }}</sms_text>
+		</item>
+		{% end %}
+	</unread_smss>
+</response>
