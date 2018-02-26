@@ -1,10 +1,8 @@
 local a = {}
 local to_json = require("cjson").encode
 local template = require("resty.template")
-local colors = require "ansicolors"
 
 function a.run(params)
-	--print(colors("%{bright white}Parameters: %{bright magenta}: "..to_json(params)))
 	local res_ds = {}
 	local cdate = ngx.utctime()
 	local req_headers = ngx.req.get_headers()
@@ -40,7 +38,6 @@ function a.run(params)
 	else
 		ngx.header["Content-Type"] = "application/json"
 	end
-	-- print(colors("%{bright white}Result: %{bright magenta}: "..res_ds))
 	return res_ds
 end
 

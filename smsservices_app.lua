@@ -1,6 +1,5 @@
 local REST = require("rest-processor")
 local cst = require("smsservices_constants")
-local colors = require("ansicolors")
 REST.init(cst)
 
 local to_json = require("cjson").encode
@@ -22,7 +21,6 @@ local app = {}
 app.params = ngx.req.get_uri_args(cst.http.max_args)
 app.params.splat = string.sub(ngx.var.uri, string.len(cst.rest_api.base_path) + 2)
 app.method = ngx.req.get_method()
---print(colors("%{bright white}Params: %{bright green}"..to_json(app.params)))
 if api_respond_table[app.method] then
 	app.result = api_respond_table[app.method](app)
 end
